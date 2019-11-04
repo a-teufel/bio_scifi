@@ -1,49 +1,83 @@
 %!TEX root = main.tex
 
 
-
-
 Our dominant species has three distinct biological sexes, unlike yours, \emph{homo sapiens}, which has two. As with \emph{home sapiens}, there exists asymmetry and this asymmetry has important consequences for the physical traits of our (and your) species, which in turn has consequences for the organization of our society. Here, we provide a model of gamete asymmetry as an Evolutionarily Stable Strategy (ESS).
 
 % TODO: Determine better names for these species.
-Let $m_F$, $m_P$, and $m_C$ be the gamete sizes of our Flower, Pollinator, and Central species. We assume a minimum viable gamete size, $m_0$, and represent the ESS gamete sizes by  $m^*_F$, $m^*_P$, and $m^*_C$. The overall viability, $b$, of the double fertilized ``egg'' is a function of the sum of the gamete sizes, $b=b(m_F,m_P,m_C)$.
+Let $m_F$, $m_P$, and $m_C$ be the gamete sizes of our Flower, Pollinator, and Central species. We assume a minimum viable gamete size, $m_0$, and represent the ESS gamete sizes by  $m^*_F$, $m^*_P$, and $m^*_C$. The overall viability, $b$, of the double fertilized ``egg'' is a function of the sum of the gamete sizes, $b=b(m_F,m_P,m_C)$. There are three relevant functions, corresponding to a mutant of each sex attempting to invade the ESS, $W_F(m_F,m_F^*,m_P^*,m_C^*)$, $W_P(m_P,m_F^*,m_P^*,m_C^*)$, and $W_C(m_C,m_F^*,m_P^*,m_C^*)$. While this could be analyzed using the Karush–Kuhn–Tucker (KKT) conditions, the problem is simple enough to intuit the relevant inequalities to enforce where constraints -- notably boundary conditions -- exist.
 
 For simplicity, we assume that each $P$ and $C$ individual follows either a single- or double-mating strategy, and that the probability of each sex adopting a double-mating strategy is, respectively, $q^{(P)}$ and $q^{(C)}$. Given this, each ``mating'' of an $F$ individual faces fertilization competition with probability $p^{(P)} = \frac{2 q^{(P)}}{1+q^{(P)}}$ and each mating of a $P$ individual faces fertilization competition with probability $p^{(C)} = \frac{2 q^{(C)}}{1+q^{(C)}}$. We first consider the ESS condition for $F$ individuals, who adopt a gamete size near the minimum viable size.
 
-Consider now the branching probabilities in Table~\ref{tab:branching} for ``matings''. Whereas increased gamete size increases viability of the offspring ,it reduces the amount of sperm competing in each mating, and we assume that the weighting in this competition if inversely proportional to the gamete size (c.f. Parker). Hence, the fitness of an $F$ mutant following strategy $m_F$ while the others follow $m_P^*$ and $m_C^*$ is
+Consider now the branching probabilities in Table~\ref{tab:branching} for ``matings''. Whereas increasing gamete size improves the viability of offspring, it reduces the amount of sperm competing in each mating, and we assume that the weighting in this competition is inversely proportional to the gamete size (c.f. Parker). Hence, the fitness of an $F$ mutant following strategy $m_F$ while the others follow $m_P^*$ and $m_C^*$ is
 
+% k1 = 1 - P/2 - C/2 + C*P/6 + C*P^2/12
+% k2 = P/2 + C/2 - C*P/6 - C*P^2/12
 %\begin{equation}
 %  \label{eq:W_F}
 %  W(m_F,m_P^*,m_C^*) = b(m_F,m_P^*,m_C^*) %\left[(1-p^{(C)})(1-p^{(P)}) + (1-p^{(C)}) p^{(P)} \frac{1}{\frac{m_F}}{\frac{1}{m_F^*} + \frac{1}{m^*_F} \right]
 %\end{equation}
 \begin{align}
   \label{eq:W_F}
-  W(m_F,m_P^*,m_P^*,m_C^*) &= b(m_F,m_P^*,m_C^*) \nonumber \\ 
-  &x \, [(1-p^{(C)})(1-p^{(P)})\nonumber \\
-  %& + (1-p^{(C)}) p^{(P)} \omega(m_F,m_F^*,1)\nonumber \\ 
-  &]
+  W_F(m_F,m_P^*,m_P^*,m_C^*) &= b(m_F,m_P^*,m_C^*)  & \nonumber \\ 
+  &\big[& \nonumber \\
+  &(1-p^{(C)}) \, (1-p^{(P)})& \nonumber \\
+  &+(1-p^{(C)}) \, p^{(P)}& \omega(m_F,m_F^*,1) \nonumber \\
+  &+p^{(C)} \, (1-p^{(P)}) \, (1-p^{(P)})& \omega(m_F,m_F^*,1) \nonumber \\
+  &+p^{(C)} \, (1-p^{(P)}) \, p^{(P)}& \omega(m_F,m_F^*,2) \nonumber \\
+  &+p^{(C)} \, p^{(P)} \, (1-p^{(P)})& \omega(m_F,m_F^*,2) \nonumber \\
+  &+p^{(C)} \, p^{(P)} \, p^{(P)} & \omega(m_F,m_F^*,3) \nonumber \\
+  &\big]
   %&\frac{1}{m_F} \frac{1}{m_F^*} + \frac{1}{m^*_F} ] 
 \end{align}
 
-For convenience, let a function $\omega$ represent
+\noindent where for convenience we define the function $\omega$,
 \begin{align*}
 \omega(m,m^*,\alpha) = \frac{ \frac{1}{m} }{ \frac{1}{m}+\frac{\alpha}{m^*} }.
 \end{align*}
 
-The first derivative with respect to $m$ is simplified to
+\noindent The first derivative of $\omega$ with respect to $m$ is
 \begin{align*}
     \frac{\partial \omega}{\partial m} &= \frac{ -\frac{1}{m^2} }{ \frac{1}{m}+\frac{\alpha}{m^*} }+ \frac{ \frac{1}{m^3} }{ [\frac{1}{m}+\frac{\alpha}{m^*}]^2 }\\
     &=-\frac{1}{m}\omega(m,m^*,\alpha)(1-\omega(m,m^*,\alpha)).
 \end{align*}
 
-Evaluating $\omega$ at $m=m^*$ yields
+\noindent Evaluating $\omega$ at $m=m^*$ yields
+
 \begin{align*}
     \omega(m^*,m^*,\alpha) = \frac{1}{1+\alpha}.
 \end{align*}
 Therefore,
 \begin{align*}
-  \frac{\partial \omega}{\partial m}|_{m=m^*} &=  -\frac{\alpha}{m^*(1+\alpha)} 
+  \frac{\partial \omega}{\partial m}|_{m=m^*} &=  -\frac{\alpha}{m^*(1+\alpha)}. 
 \end{align*}
+
+
+%\noindent Let 
+%\begin{align*}
+%    k_1(p^{(C)}, p^{(P)}) = \frac{p^{(C)} (p^{(P)})^2 }{12} %-\frac{5}{6}p^{(C)}p^{(P)}+\frac{p^{(C)}+p^{(P)}}{2}
+%\end{align*}
+%and
+%\begin{align*}
+%    k_2(p^{(C)}, p^{(P)}) = \frac{p^{(C)} (p^{(P)})^2 }{12} %+\frac{1}{6}p^{(C)}p^{(P)}-\frac{p^{(C)}+p^{(P)}}{2}.
+%\end{align*}
+The first derivative of the $W_F$ with respect to $m_F$ evaluated at $m_F=m_F^*$ is
+\begin{align}
+    \label{eq:cond_F}
+    \frac{\partial W}{\partial m_F}|_{m_F=m_F^*} =
+    k_1 \, b'(m^*) - \frac{1}{m_F^*} \, k_2 \, b(m^*)
+\end{align}
+
+\noindent where
+
+\begin{equation}
+  k_1 = 1 - \frac{p_P + p_C}{2} + \frac{1}{6} p_P p_C + \frac{1}{12} p_P^2 p_C
+\end{equation}
+
+\noindent and
+
+\begin{equation}
+  k_2 = \frac{p_P + p_C}{2} - \frac{1}{6} p_P p_C - \frac{1}{12} p_P^2 p_C \mbox{.}
+\end{equation}
 
 \begin{center}
 \begin{tabular}{ |r|r|r|c|c|c| } 
@@ -60,6 +94,26 @@ Therefore,
 \label{tab:branching}
 \end{center}
 
+\noindent Since $m_F^*=m_0$ at the ESS, the following inequality constraint must be satisfied:
+\begin{equation}
+  \label{eq:W_F}
+    \frac{\partial W_F}{\partial m_F}|_{m_F=m_F^*} < 0 \mbox{.}
+\end{equation}
+Invoking the so-called Marginal Value Theorem (reference Charnov and Parker here), the optimal investment in offspring viability is achieved when the following condition on overall gamete size is satisfied:
+
+\begin{equation}
+  \label{eq:mvt}
+  b'(m^*) = \frac{b(m^*)}{m^*} \mbox{.}
+\end{equation}
+
+\noindent Combining Equations~\ref{eq:cond_F}, \ref{eq:W_F}, and~\ref{eq:mvt}, the optimal gamete size for $F$ is $m_F^*=m_0$ so long as the following inequality is satisfied:
+
+\begin{equation}
+  \label{eq:inequa_F}
+  \frac{m_F^*}{m^*} < \frac{k_2}{k_1} = \frac{\frac{p_P + p_C}{2} - \frac{1}{6} p_P p_C - \frac{1}{12} p_P^2 p_C }{ 1 - \frac{p_P + p_C}{2} + \frac{1}{6} p_P p_C + \frac{1}{12} p_P^2 p_C} \mbox{.}
+  %\frac{m_F^*}{m^*} < -\frac{k_1}{k_2} = -\frac{ \frac{p^{(C)} (p^{(P)})^2 }{12} -\frac{5}{6}p^{(C)}p^{(P)}+\frac{p^{(C)}+p^{(P)}}{2}}{\frac{p^{(C)} (p^{(P)})^2 }{12} +\frac{1}{6}p^{(C)}p^{(P)}-\frac{p^{(C)}+p^{(P)}}{2}}
+\end{equation}
+
 
 % (1-pC) * (1-pP) N_f
 
@@ -71,4 +125,12 @@ Therefore,
 %single mating for both $C$
 
 %and competition for each species-specific decision about whether to double- or single-mate. With probability $$
-Given the assumption of only single- or double-mating, the probability of each 
+%Given the assumption of only single- or double-mating, the probability of each 
+
+\noindent A similar derivation can be applied to $P$, but with the number $N_P$ standing in for $N_F$ in Table~\ref{tab:branching}. One conclude that
+
+\begin{equation}
+  \label{eq:inequa_P}
+  \frac{m_P^*}{m^*} < \frac{k_2}{k_1} = \frac{1}{\frac{2}{p_C}-1} \mbox{.}
+  %\frac{m_F^*}{m^*} < -\frac{k_1}{k_2} = -\frac{ \frac{p^{(C)} (p^{(P)})^2 }{12} -\frac{5}{6}p^{(C)}p^{(P)}+\frac{p^{(C)}+p^{(P)}}{2}}{\frac{p^{(C)} (p^{(P)})^2 }{12} +\frac{1}{6}p^{(C)}p^{(P)}-\frac{p^{(C)}+p^{(P)}}{2}}
+\end{equation}

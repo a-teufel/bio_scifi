@@ -12,6 +12,11 @@
 \raggedbottom           % don't add extra vertical space
 \usepackage{bbm} % for expectations
 \usepackage{cleveref}
+\usepackage{amsmath}
+\usepackage{tikz}
+
+\usetikzlibrary{matrix,calc}
+
 
 \begin{document}
 
@@ -32,17 +37,233 @@
 %\chapter{Foreword}
 \input{foreword.tex}
 
+\chapter*{The Evolution and Consequences of Tri-parental Systems}
 
-\chapter{The Biological Evolution of $n$-parental Systems}
+\section*{Background and terminology}
+
+
+Reproduction is the process by which new organisms are produced by existing organisms. There are a wide variety of reproductive systems that have evolved on Earth and elsewhere, and its evolution depends on its contribution to the fitness of the organism compared to other potential systems. 
+
+Fundamentally, a reproductive system may consist of several core elements:
+
+\begin{enumerate}
+
+%\item \textbf{Sex} is the combination of genetic material from two or more parents, which is then passed to the offspring. This is in contrast to the simpler asexual reproduction, where one individual can independently produce offspring, which are genetically identical to the parent. Asexual reproduction can be more time and energy efficient, while sexual reproduction can incur severe costs (\emph{e.g.}, the ``two-fold cost of males'' and increased spread of disease). There is a wide range of potential benefits that sexual reproduction can impart on organisms \cite{kondrashov1993classification}. One prominent hypothesis is that sexual reproduction increases the variance of genomes produced in each generation, which can be a bet-hedging strategy in an unpredictable and fluctuating environment. 
+
+%\item \textbf{Number of parents} refers to the number of individuals required to produce an offspring (each of the parents contributes some genetic material to the offspring). On Earth, sexual reproduction with two parents is the overwhelmingly prevalent mode.  Our own life history involves three parents (where the genetic material from three individuals combines to form an offspring, known as triparentalism), but this is exceedingly rare on Earth, although there are a small number of known examples, including in viruses [cite from perry and others]. In principle, an arbitrary number of individuals could be required for sexual reproduction ($n$-parentalism). [cite other perry etc] It is generally assumed that increasing numbers of parents incurs greater coordination and search costs, although some have argued that the existing molecular machinery of Earth-based organisms may be readily adaptable to accomodate tri-parental systems [Perry]. [cite Hurst 1996]
+
+\item \textbf{Mating types} are subgroups of individuals in a species, where individuals in one subgroup preferentially mate with those in other subgroups. 
+
+
+
+which can mate sexually with other subgroups in a systematic pattern.  Review of possible mating type systems, and their combinatorics~\cite{bull_combinatorics_1989}. Emphasizes that vast majority of systems consists of $K$ types, where each type can mate with all other $K-1$ types but not themselves (\emph{self-avoidance}).
+https://www.overleaf.com/7531161616nwppcpkzjbcn
+
+%Explain self-avoidance: we have $n$ mating types, who cannot mate with themselves but (usually) all others~\cite{bull_combinatorics_1989}.
+
+
+If self-avoidance exists, and there is essentially random mixing of mating types, then less common mating types (who can mate with all) will be favored relative to more common mating types,  due to frequency-dependent selection. Absent other effects, this will cause the number of mating types to rise to $n\to \infty$.  This is summarized in a dynamical model by \cite{iwasa_evolution_1987}. This logic is also mentioned earlier, in an informal way, in \cite{power_forces_1976} (`` But if more and more new types were added, each individual would approach universal acceptability and the number of types could come to equal the number of clones.''). Presumably, this will only increase in strength when number of parents to make an offspring increases.
+
+Why do we only observe only two mating types?  Hurst suggests (a somewhat complicated) reason in ~\cite{hurst_why_1996}.  The basic logic (as we understand it) is that it is advantageous to have a single parent contribute the cytoplasm.  With more than two parents, it becomes difficult to guard against selfish mutants, in which two of the parents contribute cytoplasm.  Supports with evidence and citations showing that isogamous systems where mating involves only exchange of nuclear material hundreds or even thousands of mating types can exist.
+
+Power on why not having too many types: ``The maximum number of mating types should be limited by (a) selection against genetically incompatible pairings, (b) competition between members of different mating types, and (c) the between-sexes-choice form of sexual selection operating against genetically incompatible and/or competitively infer individuals.''~\cite{power_forces_1976}.
+
+Power~\cite{power_forces_1976}: ``In order to understand the selective factors involved in the evolution of mating types, I consider three questions: (1) Why have mating types evolved? (2) Why have more than two types evolved in some populations? (3) What limits the number of types?''
+
+\end{enumerate}
+
+\section*{An overview of the genetics of our species} 
+% we could also move this after 'emergence if gamete asymmetry..' or wherever
+
+The details of the origin of the biochemistry of our life form, as well as the precise chemistry that forms it, will be discussed in a later section. Here we will focus on explaining our genetics and how it compares to the genetics of your species. For this reason we will refer to our genetic material as sets of double stranded chromosomes when necessary so that you are able to understand the analogy. The main distinction however, is that unlike your diploid genomes, where you inherit one copy of each chromosome from one of your two parents, our genome is triploid, where we inherit one copy of each chromosome from one of our three parents. The details of the recombination events occurring pre-gamete formation are discussed in the 'genetics textbook' part of the SI and an overview is shown in Figure \ref{fig:cross3}.
+%or reference the 'Genetics' section in the SI or whatevr you want
+
+The dynamics of our genetics and how it affects assignment of mating types is surprisingly analogous to yours but with some key differences which will be expanded upon in the SI. As discussed previously, 
+%or after? depending on where we talk about the fact that there are 3 mating types with 2 gamete sizes
+our species is composed of three mating types. These mating types are distinguished by three sex-determining genotypes: 'XXY', 'XYY' and 'XYZ'.
+% the quote marks look weird when compiled and i don't know how to do that
+Each of these mating types produce haploid gametes, and all three gametes need to come together in order to produce a triploid off-spring. Each parent thus contributes a third of its genetic material to the offspring and conversely the offpring's genome is composed of a third of each of its parents genome.
+The XYZ mating type produces the largest gamete, that is then fertilized by the other two smaller ones. In your species, you would thus define XYZ as female and the other two as different types of males, although it is important to note that this analogy does not quite match with our genders. The main difference to note is that the two 'male' mating-types each produce only one type of gamete. The XXY genotype only produces X gametes while the XYY genotype only produces Y gametes. It follows that the female, producing all three X, Y and Z gametes, is the one that biologically determines the mating type of the offspring. We have included an example of the "Punnet square" that describes sex determination in the case of two types (Table \ref{tab:punnet_human}) and its extension to illustrate this concept in our species (Table \ref{tab:punnet_us}). 
+
+\begin{figure}
+\centering
+%\begin{wrapfigure}{l}{4cm}
+\includegraphics[width=0.4\columnwidth]{AshleyFig/cross_3.pdf}
+\caption{A) Illustration of Earth based diploid genome. B) Chromosomal crossover during meiosis in diploid system. C) Illustration of our triploid genome. D) Chromosomal crossover during meiosis in triploid system.}
+\label{fig:cross3}
+%\end{wrapfigure}
+\end{figure}
+
+%\begin{table}
+%\centering
+%\includegraphics[width=0.3\columnwidth]{AshleyFig/punnet.pdf}
+%\caption{A) Punnet square of mating type assignment in humans. B) Partial Punnet cube of mating type %assignment in our species. Letters a, b and c are used to help follow the three-mating types.
+%\label{tab:punnet}}
+%\end{table}
+
+\begin{table}
+\centering
+\begin{tabular}{ |c| c c| } 
+\hline
+& $X$ & $Y$ \\
+\hline
+$X$ & $XX$ & $XY$ \\ 
+$X$ & $XX$ & $XY$ \\ 
+ \hline
+ \end{tabular}
+\caption{Punnet square of mating type assignment in humans.} 
+\label{tab:punnet_human}
+\end{table}
+
+\begin{table}
+\centering
+\begin{tikzpicture}[every node/.style={anchor=north east,fill=white,minimum width=.9cm,minimum height=.9mm}]
+\matrix (mA) [draw,matrix of math nodes]
+{
+Xa & Xb & Xb & Yb \\
+\hline
+Yc & XXY & XXY &  \\
+Yc & XXY & XXY &  \\
+Xc &  &  &  \\
+};
+
+\matrix (mB) [draw,matrix of math nodes] at ($(mA.south west)+(.5,0.7)$)
+{
+Ya & Xb & Xb & Yb \\
+\hline
+Yc & YXY & YXY &  \\
+Yc & YXY & YXY &  \\
+Xc &  &  &  \\
+};
+x
+\matrix (mC) [draw,matrix of math nodes] at ($(mB.south west)+(.5,0.7)$)
+{
+Za & Xb & Xb & Yb\\
+\hline
+Yc & ZXY & ZXY &  \\
+Yc & ZXY & ZXY &  \\
+Xc &  &  &  \\
+};
+\draw[dashed](mA.north east)--(mC.north east);
+\draw[dashed](mA.north west)-- node[sloped,above] {} (mC.north west);
+\draw[dashed](mA.south east)--(mC.south east);
+\end{tikzpicture}
+\caption{Partial Punnet cube of mating type assignment in our species. Letters a, b and c are used to help follow the three-mating types.} 
+\label{tab:punnet_us}
+\end{table}
+
+
+\section*{The origin of tri-parentalism and three mating types} 
+
+Both our home system and Earth have evolved sexual reproduction, such that the production of offspring requires more than one parent. Although there are potential costs of sex (\emph{e.g.}, a ``two-fold cost of males'' for many Earth species, increase in disease spread, increased coordination and search costs), the ubiquity of sex also implies strong benefits. One theoretical model [cite Kondrashov] demonstrated that sex can dilute the number of deleterious mutations in a genome, while asexual organisms monotonically increase their mutational load. This can favor the evolution of sex. 
+
+But how many individuals should combine their genetic material to produce an offspring? On Earth, the overwhelmingly dominant mode is two parents (although there are a very small number of exceptions), while on our home star system, three parents is the mode. In principle, any number of parents could combine genetic material to produce an offspring. 
+
+In addition to the number of parents, there may be different mating types within the population. Mating types are subdivisions of a population where individuals of one mating type preferentially mate with individuals of one or more different mating types. For humans, there exist two mating types (\emph{i.e.}, males and females) but for other organisms on Earth, such as fungi and slime molds, there can be many more mating types. 
+
+We asked what ecological differences between our home star system, and the planet Earth, could have driven the evolution of different numbers of parents, and different numbers of mating types. We used the model developed by Kondrashov model (1982?) and extended by Perry (xx) to examine the role of mutation rate, encounter rate, and the cost of $n$-parental systems on the emergence of stable bi- and tri-parental systems.
+
+[TO ADD: reference to previously published on our planet spatial model re. emergence of self avoidance, negative result for triploids, authors mentioned in passing that in the unrealistic diploid case some interesting dynamics mixing regimes ]
+
+\section*{The emergence of gamete asymmetry in tri-parental systems}
+
+The natural history of Earth and our planet differ in many, but not all, respects. Notably, on both Earth and our planet mating types preceded gamete asymmetry. The preceding section describes the evolution of tri-parental inheritance, mating types, and self-avoidance in the high radiation environment of our planet. In this section we discuss the evolution of gamete asymmetry, then in the next section link these ideas to the natural history and evolutionary ecology of the species in our solar system. These ideas will continue to be pertinent in the sections on society.
+
+% ESS and ABM models to be discussed in this section
+We present both a dynamic and static (ESS) model of the evolution of gamete asymmetry, both of which take three self-avoiding mating types with distinct gametes as given. These are both described in full detail in the SI. As on Earth, there is great diversity in mating systems and concomitantly great diversity in fertilization strategies. Nevertheless, the modal mating system has three self-avoiding sexes. Furthermore, the most common pattern for gamete sizes is for two sexes to produce gametes near the minimum viable size, while one sex produces much larger gametes. On Earth, sexes with small gametes are usually called male and those with large gametes female. However, an important minority of species have one sex that produces gametes near the minimum viable size, and two sexes that produce larger gametes.
+
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width = 0.9\textwidth]{vickysFigs/2panels}
+    \caption{Simulation for the gamete size evolution. The colors distinguish gametes of different sexes. Each curve indicates the evolution trajectory of one initial condition in gamete size. Left: in the case of two sexes,  One sex evolves to have the minimal gametes size ($0$), and the other sex evolves to have a large gamete size. This recovers what happens on Earth. Right: in the case of three sexes, one sex evolves to have a large gamete size, and two evolves to have the minimal gamete size.}
+    \label{fig:gameteSize2Panel}
+\end{figure}
+
+In the SI, we confirm that this is not just a likely scenario but also consistent with an evolutionary stable strategy, i.e. no local mutation can invade into this system. The minimal gamete size of two sexes are found to be a corner solution of 
+
+% Coupled dynamical model
+We also develop a dynamical systems model for a coupled system of multiple sexes evolve at the same time. The model assumes the gamete size of all sexes evolve to increase the number of off-springs individuals have. The number of off-springs depends on two components. The first is competition with members of own-sex, where the chance of own gamete successfully merges with that of the mate while the mate also mates with others, increases with the gamete number (and decreases with gamete size). The second component is cooperation with other sexes, where the chance of the off-springs born successfully increases with the size of the two merged gametes. We perform an agent-based simulation for this model, and the results are shown in Figure~\ref{fig:gameteSize2Panel}. To convince you of the model, we show that the two-sex case of the model recovers what we observe is typical for Earth---one sex evolves to have a large gamete size, and the other evolves to have the minimal gamete size. In the three-sex version of the model, we show that one sex evolves to have a large gamete size, and the other evolves to have the minimal gamete size. 
+
+
+
+
+
+% One attempt at Victorian language:
+%\section*{Some illustrating examples from the natural history of our planet}
+\section*{The evolutionary ecology and sociobiology of tri-parentalism}
+Gamete asymmetry has far reaching consequences on the evolutionary ecology and sociobiology of species across the planets of our solar system. Although much nuance is lost by making analogies with Earth sexes, the most common pattern is for two sexes with small gametes to be most similar to Earth males and one sex with large gametes to be most similar to Earth females. However, an important minority of species have one male-like sex and two female-like sexes or adopt sex-roles that are difficult to associate with Earth types. An interesting case -- which in Earth terminology would be called a text-book example since it is taught formally to juveniles of our species -- is that of the Flying-Flowers of Planet 2 (our attempt at a literal translation of our name for this set of species). This is the mating system analyzed in SI Section xyz.
+
+Species in the Flying-Flowers clade have three sexes with very different physical structures and behaviors. The so-called Flower sex ($F$) is sessile and, like plants on Earth, photosynthesizes. The other two species are the Pollinator ($P$) and Central species ($C)$. The Pollinator transfers genetic material from $F$ to $C$, but unlike with Earth pollinators, who typically receive a food reward such as nectar, its ``reward'' is that it mixes in its genetic material with the genetic material of $F$. Like the Flying-Flowers, our species has two sexes with small gametes and one with large. However, unlike with the Flying-Flowers, mating occurs as one event among three individuals of each sex, not via two distinct mating events that occur between two sexes ($F$-$P$ and $P$-$C$).
+
+\section*{Disease dynamics and health in tri-parental populations}
+
+\subsection*{Sexually Transmitted Diseases}
+\textbf{Disease transmission dynamics in a tri-parental reproduction process}: We discuss the dangers and implications on sexually transmitted diseases in our tri-parental reproduction process. Here we discuss our safe sex practices and compare and contrast them with disease dynamics with comparable best practices in your bi-parental setting. We also discuss the impact of promiscuity in tri-parental reproduction dynamics? 
+
+
+\subsection*{Family Health}
+On Earth, \textbf{marriages} have emerged across cultures as recognized unions between two or more individuals \cite{Fortunato2015}. While marriage does not require or assume reproduction, it does often involve restrictions on sexual relations and investments in children. On earth, there are usually three configurations: 1) monogamous marriages (a person only has one spouse at a given time), 2) polyandry (a female has multiple male spouses at any given time), and 3) polygyny (a male has multiple female spouses). 
+
+Even though Earth has a two-parental system, polygyny (the practice of a male having multiple female spouses) is the default marriage system. Across 186 representative cultures across the world, 82\% have a polygynous marriage system \cite{Fortunato2015, Fortunato2009}. On Earth, there is little evidence that polygyny (a male having multiple spouses) is harmful for individuals \cite{Mulder1990, Sear2002, Lawson13827}. In societies where monogamy and polygyny occur, polygynous groups seem to lead to greater child and woman health and security \cite{Mulder1990}. Generally speaking, polygynous households are correlated with greater wealth; whether on earth this is due to the fact that wealthier men can have more wives, or those with more wives can aggrandize, is unclear. However, the “polygyny-threshold model” suggests that polygyny will develop when costs associated with sharing a husband can be offset by resource accumulation that would be difficult under monogamy \cite{Lawson13827}. What is clear from these studies is that \textit{there is little evidence} that a three- or more-parent group would lead to a decrease in child, mother, or father health \cite{Lawson13827, Mulder1990}. Rather, it seems that evidence points to higher health indices for each individual in this type of family on your own planet.
+
+\section*{The implications of tri-parentalism for society}
+
+We review a few implications an trip-parent system would have on greater social structures. We believe there are many consequences beyond this paper, but concentrated on three different outcomes:\ families, mate selection, health, and the presence/absence of cultural diversity.
+
+\subsection*{Matching model: Marriages and Divorce}
+
+As stated in the previous sections, our society does share marriage as a system. However, the difference in the number of sexes to be matched seems to have resulted in a different phenomena. From what we observed in your fictional stories, it seems that your marriage is very stable, or at least aims to be so. In your ``movies'' and ``drama series'', we have observed a couple of two sexes frequently declares ``eternal love'' and they decide to ``live happily ever after''. 
+
+Our marriage doesn't work that way. Our marriage is very temporal and we are aware of it from the beginning. Our people repeat getting married and divorced, searching for better mates. This difference can be understood by the difficulty of finding the optimal mates in our tri-parental system. Imagine we have $N$ population of each sex. In bi-parental system, you only need to find a ``soulmate'' from $N$ members of the opposite sex, which is ridiculously easy. For us, the perfect match takes a ``soul-triplets'' and we each have to find it out from $N^2$ combinations if we are to marry ``until the death do three of us part''. That just does not happen.
+
+The Figure~\ref{fig:married_rate} demonstrates this point in a simple model. Here, people from each sex randomly meet, and form a marriage if it improves their current situation. If we repeat this process infinite times, it should converge to a stable equilibrium. As you can see, the marriage rate at a time decreases with more sex types and the average utility tends to be lower as a result.
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{hajimeFigs/married_rate_n.png}
+    \includegraphics[width = 0.3\textwidth]{hajimeFigs/average_utility_n.png}
+    \caption{The ratio of married population and the average utility.}
+    \label{fig:married_rate}
+\end{figure}
+
+Note that this model only illustrates how difficult it is to find a good match with more sexes involved. In reality, we have a strong meeting technology (i.e. dating platform) to facilitate finding a better partner, which makes the meeting easier but results in high divorce rate.
+Also, the actual marriage in our system is a little more stable than this simple model, due to the search cost and the parental care. However, the fact that the chance of sustainable marriage is so low has various consequences in our society, which we will discuss in the following section.
+
+\subsection{Cultural Mixing Under Tri-Parent Reproduction}
+
+The Voyager data, as well as other data that we have uploaded from Earth during our fly-by, strongly suggests that contemporary Earth society is still highly divided into different cultures. This strikes us as surprising; when our society reached Earth's current level of capability for inter-cultural mixing, a homogeneous quickly emerged. In light of the salience of two-parent reproduction in our study of Earth, we chose to investigate whether our own capacity for $3$-parent reproduction can explain, at least in part, the emergence of cultural homogeneity in our society, as compared to the Earthling's highly diverse and stratified system of cultures.\par 
+
+Our model (provided in the supplemental material) shows that under 3-parent reproduction, the average number of cultural affinities that a person can expect to have over the course of their lifetime increases rapidly throughout the generations. At some point, the cognitive load of maintaining multiple cultural identities becomes overwhelming, even for beings like us. We hypothesize that our current cultural homogeniety emerged as a response to the explosion in cultural identities modelled above. This is due three two factors:\ the greater possibility for acquiring additional cultural affinities through marriage, and the fact that under 3-parent reproduction, the average number of cultural affinities that a person is born with increases rapidly through the generations. Indeed, as shown in Figure \ref{fig:cultureplot}, our model is consistent with an outcome in which the average person's expected lifetime cultural affinities increases rapidly with their marriage-independent cultural affinities.\par 
+
+\begin{figure}[htb!]
+    \centering
+    \includegraphics[width = 0.7\textwidth]{culture1.png}
+    \caption{As the mean number of cultural affinities that a person acquires outside of marriage increases, the number of cultural affinities that the average person can expect to acquire over their lifetime also increases.}
+    \label{fig:cultureplot}
+\end{figure}
+
+
+Certainly, the evidence from Earth suggests that there is a critical level of cultural complexity at which individuals become overburdened and the adoption of a single culture becomes necessary. In an ethnographic study of a highly multilingual after-school program in Los Angeles, \cite{orellana2016cultivating} find that despite speaking a wide array of languages and dialects at home, children in the program converged on a narrower range of English and Spanish dialects when speaking with each other. Data from \cite{rumbaut2013immigration} show that while the United States is historically a country with a high rate of immigration and therefore a rich diversity of language forms, is also a ``language graveyard'', i.e.\ a country where immigrant languages increasingly fall out of use. These findings suggest that there is a level of linguistic diversity at which languages start to fall out of use, due to the need for assimilation. There is some evidence that this is due not just to the desire for assimilation into the dominant community, but also due to the cognitive load of speaking multiple languages. \cite{matras2000fusion}
+finds that speakers of multiple languages often develop strategies for ``fusing'' their spoken languages in to one common language, so that the multilingual subject effectively speaks a single, fused language. This fusion develops as a shortcut for avoiding the cognitive load associated with maintaining fluency in two completely different languages.\par 
+
+
+
+
+
+Language is, of course, only one aspect of culture, and the cultural homogeneity of our current society encompasses more dimensions of culture than language. Indeed, most people in our society speak a common language (aside from our solitary "Turkish" speaker in our voyaging group), but we also share a broader set of common cultural practices. We suspect, however, that the emergence of such cultural homogeneity began with the fusing of language, which led to a broader fusion of cultural elements communicated via a common media. We also have strong evidence that this process of cultural convergence developed at a much faster rate in our society than the rate at which it is currently developing on Earth. In light of the model proposed above, we have strong reason to suspect that our $3$-participant system of marriage and reproduction, as opposed to a two-participant system, plays a significant explanatory role with respect to the higher rate of cultural convergence that we experienced in our deep past.\par 
+
+
+
+
+
+Indeed, our antiquarians -- our best translation of a group of social scientists comprising, in your terminology, comparative linguists, archaeologists, historians, and so forth -- have uncovered good, albeit indirect evidence supporting the perspective outlined above. As with your species, the adoption of food production was a seminal moment in our history, leading to the growth of ``urbanism'' and a rapid increase in technological innovation. Prior to this, our ancestors had spread across the continents of our world, developing distinct local cultural traditions, with physical boundaries usually demarcating the cultural boundaries between these groups. Shortly after the adoption of food production, we domesticated a beast of burden (quite unlike your horses, but serving the same functional role) that allowed more rapid movement and vastly expanded trading in material goods as well as the movement of members of our species among previously isolated locations.
+
+This created a set of natural experiments whereby previously non-mixing groups with distinct (and locally unified) cultures came increasingly in contact. Our antiquarians have fused linguistic data with archaeological data -- for the latter, we rely heavily on stylistic differences in vessels created from highly pliable soils fired at high temperatures (similar to your pottery, which we also invented) -- to show that as these natural experiments played out there was a very rapid unification of cultures. This occurred far more rapidly than the most comparable examples from your history, although it was far more difficult for us to piece together the story since differences in atmospheric chemistry between our worlds means we cannot utilize radiocarbon dating, since is not a constant production of carbon-14 from nitrogen-14 in our world. Instead, we utilize less precise and radioisotope dating techniques and largely continue to operate in the regime that some of your archaeologists identify as cultural history. That being said, seriation techniques that form the basis for (relative) dating in cultural history are more reliable in our world since culture change is more rapid.
+
+\chapter*{Supplementary Materials}
 
 \input{evolutionOfN.tex}
 
-
 \input{biomodel.tex}
-
-
-%What if took more than 2 parents to make a bebe?
-
 
 %\chapter{Biological Foundations}
 
@@ -50,32 +271,39 @@
 %\section{Why are the Mating Types Asymmetric?}
 %\input{asymmetry.tex}
 
-\subsection{Gamete Asymmetry and its Implications for society}
-\input{asymmetry.tex}
 
-\subsection{Dynamical model for Gamete asymmetry}
+\input{asymmetry.tex}
+\section{Genetics}
+%\input{biochemistry.tex}
+
+% Dynamical model for Gamete asymetry in 2 and 3 sexes (Vicky's)
 \input{GameteDynam.tex}
 
 
-\subsection{Why unequal birth rates?}
-\input{chrom_sex_determination.tex}
+\section{Families}
+\input{families.tex}
 
-
-
-\chapter{Social Implications of $n$-parental Systems}
-We review a few implications an $n$-parent system would have on greater social structures. We believe there are many consequences beyond this paper, but much of earth's cultural practices and laws are extremely hard for us to understand. Therefore, we concentrated on three different outcomes:\ mating selection, health, and the presence/absence of cultural diversity. We then discuss examples of human societies on Earth whose parenting and child-rearing habits more closely resemble our own. That is, we examine instances of Earthling-human behavior in which more than two parents are directly involved in the raising of children. We find that these societies are characterized by many of the positive features of the $n$-parent families more familiar to us.
-
-\section{Mating Selection}
-\input{marriage.tex}
+\section{Matching/Divorce}
+\input{match.tex}
 
 \section{Health}
 \input{STD.tex}
 
-\section{Emergence of Cultural Homogeneity Under $n$-Parent Reproduction}
+\section{Cultural Mixing Under $n$-Parent Reproduction}
 \input{monoculture.tex}
 
-\section{Examples of More than Two Parents on Earth}
-\input{polygamy.tex}
+\section{Costly signaling}
+Now we discuss the consequences for costly signaling 
+\input{costlysignaling.tex}
+[signal lost]
+
+\section{Conclusion} 
+In both systems, mating types evolved first and gamete size second. 
+
+\section{Discussion} 
+emergence of monogomaous three 
+
+
 
 \chapter{Afterward}
 \input{afterward.tex}

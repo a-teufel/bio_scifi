@@ -1,16 +1,16 @@
 %!TEX root = main.tex
 
 \subsubsection{Background to the Problem}
-The Voyager data, as well as other data that we have uploaded from Earth during our fly-by, strongly suggests that contemporary Earth society is still highly divided into different cultures. This strikes us as surprising; when our society reached Earth's current level of capability for inter-cultural mixing, a homogeneous quickly emerged. In light of the salience of two-parent reproduction in our study of Earth, we chose to investigate whether our own capacity for $n$-parent reproduction can explain, at least in part, the emergence of cultural homogeneity in our society, as compared to the Earthling's highly diverse and stratified system of cultures. In this section, we provide a simple probabilistic model for calculating an individual's expected number of cultural affinities, such as language or membership in a legal forming group, and show how it provides evidence for an explanatory role for $n$-parent marriage in the emergence of cultural homogeneity in our society.
 
-\subsubsection{The Model}
+In this section, we provide a simple probabilistic model for calculating an individual's expected number of cultural affinities, such as language or membership in a legal forming group, and show how it provides evidence for an explanatory role for $3$-parent marriage in the emergence of cultural homogeneity in our society.\par 
+
 Suppose that there are $n$ people in the world. Let a possible world $\omega$ be defined as follows:
 \begin{equation}
     \omega = \bigcup_{i=1}^{n}(MICA_{i}, M_{i}, CM_{i}, TCA_{i})
 \end{equation}
-Each $4$-tuple $(MICA_{i}, M_{i}, CM_{i}, TCA_{i})$ represents one individual in the world. Let $WC$ be the set of cultures in the world. $MICA_{i}\subseteq WC$ is the cultural affinities that $i$ has independent of marriage. Let $M_{i}$ be the set of other individuals in the population to whom $i$ have ever married. Marriage is a symmetric and transitive (but not reflexive) relation on the set of individuals. $CM_{i}\subseteq WC$ is defined as follows:
+Each $4$-tuple $(MICA_{i}, M_{i}, CM_{i}, TCA_{i})$ represents one individual in the world. Let $WC$ be the set of cultures in the world, which we assume to have infinite but countable cardinality. $MICA_{i}\subseteq WC$ is the cultural affinities that $i$ has independent of marriage. Let $M_{i}$ be the set of other individuals in the population to whom $i$ have ever married. Marriage is a symmetric and transitive (but not reflexive) relation on the set of individuals. $CM_{i}\subseteq WC$ is defined as follows:
 \begin{equation}
-    CM_{i}=\bigcup_{j\in M_{i}}MIRTW_{j}\setminus\bigcap_{j\in M_{i}}MIRTW_{j}
+    CM_{i}=\bigcup_{j\in M_{i}}MICA_{j}\setminus\bigcap_{j\in M_{i}}MICA_{j}
 \end{equation}
 In other words, $CM_{i}$ is the set of distinct cultures with which $i$'s spouses have marriage-independent affinities. $CM_{i}$ is empty if and only if the individual $i$ is unmarried, so that $M_{i}$ is empty (this assumes no stateless people). Finally, let $TCA_{i}$ be defined as follows:
 \begin{equation}
@@ -18,21 +18,21 @@ In other words, $CM_{i}$ is the set of distinct cultures with which $i$'s spouse
 \end{equation}
 In other words, $TCA_{i}$ is $i$'s total set of distinct cultural affinities, both independent of marriage and through marriage.\par 
 
-In each possible world $\omega$, assume that $MICA_{i}$ is i.i.d.\ across individuals. Let us define a probability space $(\Omega,\mathcal{P}(\Omega),P(\cdot))$, where $\mathcal{P}(\Omega)$ is the power set of $\Omega$. Let $[TCA_{i}=\alpha]\in\mathcal{P}(\Omega)$ be the set of possible worlds in which the cardinality of $TCA_{i}$ is $\alpha$, i.e.\ the worlds in which $i$ has $\alpha$ distinct cultural affinities. Let $[CM_{i}=\beta]\in\mathcal{P}(\Omega)$ be the set of possible worlds in which the cardinality of $CM_{i}$ is $\beta$, i.e.\ the worlds in which $i$'s spouses have $\beta$ distinct cultural affinities. We can calculate any individual $i$'s expect cultural affinities, where there are $\omega$ cultures in the world:
+In each possible world $\omega$, assume that $MICA_{i}$ is i.i.d.\ across individuals. Let us define a probability space $(\Omega,\mathcal{P}(\Omega),P(\cdot))$, where $\mathcal{P}(\Omega)$ is the power set of $\Omega$. Let $[TCA_{i}=\alpha]\in\mathcal{P}(\Omega)$ be the set of possible worlds in which the cardinality of $TCA_{i}$ is $\alpha$, i.e.\ the worlds in which $i$ has $\alpha$ distinct cultural affinities. Let $[CM_{i}=\beta]\in\mathcal{P}(\Omega)$ be the set of possible worlds in which the cardinality of $CM_{i}$ is $\beta$, i.e.\ the worlds in which $i$'s spouses have $\beta$ distinct cultural affinities. We can calculate any individual $i$'s expect cultural affinities:
 \begin{equation}
-    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\omega}\alpha P([TCA_{i}=\alpha])
+    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\infty}\alpha P([TCA_{i}=\alpha])
 \end{equation}
 The law of total probability gives us:
 \begin{equation}
-    \mathbbm{E}(C_{i}) =  \sum_{\alpha=1}^{\omega}\sum_{\beta=0}^{\omega}\alpha P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])
+    \mathbbm{E}(C_{i}) =  \sum_{\alpha=1}^{\infty}\sum_{\beta=0}^{\infty}\alpha P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])
 \end{equation}
 Which we expand as follows:
 \begin{multline}
-    \mathbbm{E}(C_{i})= \sum_{\alpha=1}^{\omega}\alpha\big(P([TCA_{i}=\alpha]|[CM_{i}=0])P([CM_{i}=0]) \\ + \  \sum_{\beta=1}^{\omega} P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])\big)
+    \mathbbm{E}(C_{i})= \sum_{\alpha=1}^{\infty}\alpha\big(P([TCA_{i}=\alpha]|[CM_{i}=0])P([CM_{i}=0]) \\ + \  \sum_{\beta=1}^{\infty} P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])\big)
 \end{multline}
 Let $UM_{i}\in\mathcal{P}(\Omega)$ be the set of worlds in which $i$ never marries. By definition, $UM_{i}=[CM_{i}=0]$. So we can re-write the above as follows:
 \begin{equation}
-    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\omega}\alpha\big(P([TCA_{i}=\alpha]|UM_{i})P(UM_{i}) +  \sum_{\beta=1}^{\omega} P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])\big)
+    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\infty}\alpha\big(P([TCA_{i}=\alpha]|UM_{i})P(UM_{i}) +  \sum_{\beta=1}^{\infty} P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])\big)
 \end{equation}
 Whenever $i$ has never married, their overall cultural affinities match their marriage-independent cultural affinities. This gives us the following:
 \begin{equation}
@@ -40,37 +40,37 @@ Whenever $i$ has never married, their overall cultural affinities match their ma
 \end{equation}
 So we can re-write the above as follows:
 \begin{equation}
-    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\omega}\alpha\big(P([MICA_{i}=\alpha])P(UM_{i}) + \sum_{\beta=1}^{\omega} P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])\big)
+    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\infty}\alpha\big(P([MICA_{i}=\alpha])P(UM_{i}) + \sum_{\beta=1}^{\infty} P([TCA_{i}=\alpha]|[CM_{i}=\beta])P([CM_{i}=\beta])\big)
 \end{equation}
 Finally, applying the law of total probability one more time, we get the following:
 \begin{multline}
-    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\omega}\alpha\big(P([MICA_{i}=\alpha])P(UM_{i}) \\ + \    \sum_{\gamma=1}^{\omega}\sum_{\beta=1}^{\omega} P([TCA_{i}=\alpha]|[CM_{i}=\beta]) P([CM_{i}=\beta]|[MICA_{i}=\gamma])P([MICA_{i}=\gamma])\big)
+    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\infty}\alpha\big(P([MICA_{i}=\alpha])P(UM_{i}) \\ + \    \sum_{\gamma=1}^{\infty}\sum_{\beta=1}^{\infty} P([TCA_{i}=\alpha]|[CM_{i}=\beta]) P([CM_{i}=\beta]|[MICA_{i}=\gamma])P([MICA_{i}=\gamma])\big)
 \end{multline}
-Based on historical data from our interplanetary system, the prior probability $P([MICA_{i}=\gamma])$ is found to be normally distributed about the mean $\mu_{\gamma}$, with a standard deviation of $1/2$ so that, for any $\gamma$:
+Based on historical data from our interplanetary system, the prior probability $P([MICA_{i}=\gamma])$, when the mean value of $\gamma$ is $\mu_{\gamma}$, can be found via the following Poisson function:
 \begin{equation}
-    P([MICA_{i}=\gamma]) \\ = \ f(\gamma,\mu_{\gamma})=\frac{e^{(\mu_{\gamma}-\gamma)^{2}}}{\sqrt{2\pi}}
+    P([MICA_{i}=\gamma]) \\ = \ f(\gamma,\mu_{\gamma})=\frac{\mu_{\gamma}^{\gamma}e^{-\mu_{\gamma}}}{\gamma!}
 \end{equation}
 The value of the probability $P([CM_{i}=\beta]|[MICA_{i}=\gamma])$, for any $\beta$ and $\gamma$ is best estimated by the following Poisson function:
 \begin{equation}
-    P([CM_{i}=\beta]|[MICA_{i}=\gamma])= g(\beta,\gamma)=\frac{(.05+\gamma)^{\beta}e^{(\gamma-.05)}}{\beta!}
+    P([CM_{i}=\beta]|[MICA_{i}=\gamma])= g(\beta,\gamma)=\frac{(.05+\gamma)^{\beta}e^{-(.05+\gamma)}}{\beta!}
 \end{equation}
-Thus, the mean number of distinct cultural affinities of one's marriage partners increases linearly, albeit very slightly, with one's marriage-independent cultural affinities. This reflects the fact that in our society, as on Earth, marriage partners tend to share cultural affinities \cite{Schwartz2013}. The value of the probability $P([TCA_{i}=\alpha]|[CM_{i}=\beta])$ is best estimated by the following Poisson function:
+Thus, the mean number of distinct cultural affinities of a person's marriage partners increases linearly, albeit very slightly, with one's marriage-independent cultural affinities. This reflects the fact that in our society, as on Earth, marriage partners tend to share cultural affinities \cite{Schwartz2013}. The value of the probability $P([TCA_{i}=\alpha]|[CM_{i}=\beta])$ is best estimated by the following Poisson function:
 \begin{equation}
-    P([TCA_{i}=\alpha]|[CM_{i}=\beta]) = h(\alpha,\beta)=\frac{(.17+\beta^{1.2})^{\alpha}e^{(\beta^{1.2}-.17)}}{\alpha!}
+    P([TCA_{i}=\alpha]|[CM_{i}=\beta]) = h(\alpha,\beta)=\frac{(.17+\beta^{1.2})^{\alpha}e^{-(.17+\beta^{1.2})}}{\alpha!}
 \end{equation}
 Thus, the mean number of a person's cultural affinities increases super-linearly with the number of distinct cultural affinities of their marriage partners.\par 
 
 These findings allow us to re-write the equation for $\mathbbm{E}(C_{i})$ as follows:\ 
 \begin{equation}
-    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\omega}\alpha\big(f(\gamma,\mu_{\gamma})P(UM_{i}) + \sum_{\gamma=1}^{\omega}\sum_{\beta=1}^{\omega} h(\alpha,\beta)g(\beta,\gamma)f(\gamma,\mu_{\gamma})\big)
+    \mathbbm{E}(C_{i})=\sum_{\alpha=1}^{\infty}\alpha\big(f(\alpha,\mu_{\gamma})P(UM_{i}) + \sum_{\gamma=1}^{\infty}\sum_{\beta=1}^{\infty} h(\alpha,\beta)g(\beta,\gamma)f(\gamma,\mu_{\gamma})\big)
 \end{equation}
-At this point, we have a framework within which we can state our hypothesis for the generation of homogeneity in our civilization over time. As shown in Section IV.A, the average person under three-partner marriage is much less likely to never marry over the course of their life, and therefore in much more likely to have several partners. More generally, when the number of simultaneous marriage partners is unrestricted, $P(UM_{i})$ is lower than in cases where individuals are permitted only one simultaneous marriage partner. Further, and perhaps more crucially, $f(\gamma,\mu_{\gamma})$ is such that, for any $\gamma$ and $\epsilon$, the probability that $\gamma>\epsilon$ increases as $\mu_{\gamma}$ increases, $g(\beta,\gamma)$ is such that, for any $\beta$ and $\epsilon$, the probability that $\beta>\epsilon$ increases as $\gamma$ increases, and $h(\alpha,\beta)$ is such that, for any $\alpha$ and $\epsilon$, the probability that $\alpha>\epsilon$ increases as $\beta$ increases. Thus, $\mathbbm{E}(C_{i})$ is driven up as $\mu_{\gamma}$ increases, i.e.\ as the average number of cultural affinities that a person acquires independently of marriage increases. In a world in which a child can be created via $n$ parents, and inherits the cultural identity of all these parents, and inter-cultural mating is possible, $\mu_{\gamma}$ increases much faster than in a world with the same amount of inter-cultural exchange, but in which a child can only be created by two parents.\par 
+At this point, we have a framework within which we can state our hypothesis for the generation of homogeneity in our civilization over time. As shown in Section IV.A, the average person under three-partner marriage is much less likely to never marry over the course of their life, and therefore in much more likely to have several partners. More generally, when the number of simultaneous marriage partners is unrestricted, $P(UM_{i})$ is lower than in cases where individuals are permitted only one simultaneous marriage partner. Further, and perhaps more crucially, the following all hold:\ 
+\begin{itemize}
+\item $f(\gamma,\mu_{\gamma})$ is such that, for any $\gamma$ and $\epsilon$, the probability that $\gamma>\epsilon$ increases as $\mu_{\gamma}$ increases.
 
-\subsubsection{Discussion}
-Our model shows that under $n$-parent reproduction, the average number of cultural affinities that a person can expect to have over the course of their lifetime goes, increases rapidly throughout the generations. At some point, the cognitive load of maintaining multiple cultural identities becomes overwhelming, even for beings like us. We hypothesize that our current cultural homogeniety emerged as a response to the explosion in cultural identities modelled above.\par 
+\item $g(\beta,\gamma)$ is such that, for any $\beta$ and $\epsilon$, the probability that $\beta>\epsilon$ increases as $\gamma$ increases.
 
+\item $h(\alpha,\beta)$ is such that, for any $\alpha$ and $\epsilon$, the probability that $\alpha>\epsilon$ increases as $\beta$ increases.
 
-Certainly, the evidence from Earth suggests that there is a critical level of cultural complexity at which individuals become overburdened and the adoption of a single culture becomes necessary. In an ethnographic study of a highly multilingual after-school program in Los Angeles, \cite{orellana2016cultivating} find that despite speaking a wide array of languages and dialects at home, children in the program converged on a narrower range of English and Spanish dialects when speaking with each other. Data from \cite{rumbaut2013immigration} show that while the United States is historically a country with a high rate of immigration and therefore a rich diversity of language forms, is also a ``language graveyard'', i.e.\ a country where immigrant languages increasingly fall out of use. These findings suggest that there is a level of linguistic diversity at which languages start to fall out of use, due to the need for assimilation. There is some evidence that this is due not just to the desire for assimilation into the dominant community, but also due to the cognitive load of speaking multiple languages. \cite{matras2000fusion}
-finds that speakers of multiple languages often develop strategies for ``fusing'' their spoken languages in to one common language, so that the multilingual subject effectively speaks a single, fused language. This fusion develops as a shortcut for avoiding the cognitive load associated with maintaining fluency in two completely different languages.\par 
-
-Language is, of course, only one aspect of culture, and the cultural homogeniety of our current society encompasses more dimensions of culture than language. Indeed, most people in our society speak a common language, but we also share a broader set of common cultural practices. We suspect, however, that the emergence of such cultural homogeniety began with the fusing of language, which led to a broader fusion of cultural elements communicated through a common media. We also have strong evidence that this process of cultural convergence developed at a much faster rate in our society than the rate at which it is currently developing on Earth. In light of the model proposed above, we have strong reason to suspect that our $n$-participant system of marriage and reproduction, as opposed to a two-participant system, plays a significant explanatory role with respect to the higher rate of cultural convergence that we experienced in our deep past.\par 
+\end{itemize}
+Thus, $\mathbbm{E}(C_{i})$ is driven up as $\mu_{\gamma}$ increases, i.e.\ as the average number of cultural affinities that a person acquires independently of marriage increases. In a world in which a child can be created via $n$ parents, and inherits the cultural identity of all these parents, and inter-cultural mating is possible, $\mu_{\gamma}$ increases much faster than in a world with the same amount of inter-cultural exchange, but in which a child can only be created by two parents.\par 
