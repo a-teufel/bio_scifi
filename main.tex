@@ -1,14 +1,91 @@
-\documentclass{article}
+%\documentclass[reprint,aps,nofootinbib]{revtex4-1}
+\documentclass{report}
+\usepackage[margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
-
-\title{bio_scifi}
-\author{ateufel }
-\date{November 2019}
+\usepackage{newtxtext}
+\usepackage{amsmath}    % need for subequations
+\usepackage{graphicx}   % need for figures
+\usepackage{verbatim}   % useful for program listings
+\usepackage{color}      % use if color is used in text
+\usepackage{subfigure}  % use for side-by-side figures
+\usepackage{hyperref}   % use for hypertext links, including those to external documents and URLs
+\raggedbottom           % don't add extra vertical space
+\usepackage{bbm} % for expectations
+\usepackage{cleveref}
 
 \begin{document}
 
-\maketitle
+\title{Letter to a Bipaternal Planet}
+\author{Aliens}
 
-\section{Introduction}
+% tamara: this should probably be the title for the forward, then the main scientific paper would have its own title. Maybe we could format this as a report with three chapters (to start)? 
+
+%\begin{abstract}
+%Abstract here.
+%\end{abstract}
+
+% tamara: do we need an abstract? seems unnecessary. Instead, we could have the summary of the paper in the forward letter. 
+
+\maketitle
+\chapter*{Foreword}
+\addcontentsline{toc}{chapter}{Preface}
+%\chapter{Foreword}
+\input{foreword.tex}
+
+
+\chapter{The Biological Evolution of $n$-parental Systems}
+
+\input{evolutionOfN.tex}
+
+
+\input{biomodel.tex}
+
+
+%What if took more than 2 parents to make a bebe?
+
+
+%\chapter{Biological Foundations}
+
+
+%\section{Why are the Mating Types Asymmetric?}
+%\input{asymmetry.tex}
+
+\subsection{Gamete Asymmetry and its Implications for society}
+\input{asymmetry.tex}
+
+\subsection{Dynamical model for Gamete asymmetry}
+\input{GameteDynam.tex}
+
+
+\subsection{Why unequal birth rates?}
+\input{chrom_sex_determination.tex}
+
+
+
+\chapter{Social Implications of $n$-parental Systems}
+We review a few implications an $n$-parent system would have on greater social structures. We believe there are many consequences beyond this paper, but much of earth's cultural practices and laws are extremely hard for us to understand. Therefore, we concentrated on three different outcomes:\ mating selection, health, and the presence/absence of cultural diversity. We then discuss examples of human societies on Earth whose parenting and child-rearing habits more closely resemble our own. That is, we examine instances of Earthling-human behavior in which more than two parents are directly involved in the raising of children. We find that these societies are characterized by many of the positive features of the $n$-parent families more familiar to us.
+
+\section{Mating Selection}
+\input{marriage.tex}
+
+\section{Health}
+\input{STD.tex}
+
+\section{Emergence of Cultural Homogeneity Under $n$-Parent Reproduction}
+\input{monoculture.tex}
+
+\section{Examples of More than Two Parents on Earth}
+\input{polygamy.tex}
+
+\chapter{Afterward}
+\input{afterward.tex}
+
+
+\bibliography{ref}{}
+\bibliographystyle{plain}
+
+\clearpage
+
+
 
 \end{document}

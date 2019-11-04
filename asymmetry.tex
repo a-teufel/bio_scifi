@@ -1,0 +1,74 @@
+%!TEX root = main.tex
+
+
+
+
+Our dominant species has three distinct biological sexes, unlike yours, \emph{homo sapiens}, which has two. As with \emph{home sapiens}, there exists asymmetry and this asymmetry has important consequences for the physical traits of our (and your) species, which in turn has consequences for the organization of our society. Here, we provide a model of gamete asymmetry as an Evolutionarily Stable Strategy (ESS).
+
+% TODO: Determine better names for these species.
+Let $m_F$, $m_P$, and $m_C$ be the gamete sizes of our Flower, Pollinator, and Central species. We assume a minimum viable gamete size, $m_0$, and represent the ESS gamete sizes by  $m^*_F$, $m^*_P$, and $m^*_C$. The overall viability, $b$, of the double fertilized ``egg'' is a function of the sum of the gamete sizes, $b=b(m_F,m_P,m_C)$.
+
+For simplicity, we assume that each $P$ and $C$ individual follows either a single- or double-mating strategy, and that the probability of each sex adopting a double-mating strategy is, respectively, $q^{(P)}$ and $q^{(C)}$. Given this, each ``mating'' of an $F$ individual faces fertilization competition with probability $p^{(P)} = \frac{2 q^{(P)}}{1+q^{(P)}}$ and each mating of a $P$ individual faces fertilization competition with probability $p^{(C)} = \frac{2 q^{(C)}}{1+q^{(C)}}$. We first consider the ESS condition for $F$ individuals, who adopt a gamete size near the minimum viable size.
+
+Consider now the branching probabilities in Table~\ref{tab:branching} for ``matings''. Whereas increased gamete size increases viability of the offspring ,it reduces the amount of sperm competing in each mating, and we assume that the weighting in this competition if inversely proportional to the gamete size (c.f. Parker). Hence, the fitness of an $F$ mutant following strategy $m_F$ while the others follow $m_P^*$ and $m_C^*$ is
+
+%\begin{equation}
+%  \label{eq:W_F}
+%  W(m_F,m_P^*,m_C^*) = b(m_F,m_P^*,m_C^*) %\left[(1-p^{(C)})(1-p^{(P)}) + (1-p^{(C)}) p^{(P)} \frac{1}{\frac{m_F}}{\frac{1}{m_F^*} + \frac{1}{m^*_F} \right]
+%\end{equation}
+\begin{align}
+  \label{eq:W_F}
+  W(m_F,m_P^*,m_P^*,m_C^*) &= b(m_F,m_P^*,m_C^*) \nonumber \\ 
+  &x \, [(1-p^{(C)})(1-p^{(P)})\nonumber \\
+  %& + (1-p^{(C)}) p^{(P)} \omega(m_F,m_F^*,1)\nonumber \\ 
+  &]
+  %&\frac{1}{m_F} \frac{1}{m_F^*} + \frac{1}{m^*_F} ] 
+\end{align}
+
+For convenience, let a function $\omega$ represent
+\begin{align*}
+\omega(m,m^*,\alpha) = \frac{ \frac{1}{m} }{ \frac{1}{m}+\frac{\alpha}{m^*} }.
+\end{align*}
+
+The first derivative with respect to $m$ is simplified to
+\begin{align*}
+    \frac{\partial \omega}{\partial m} &= \frac{ -\frac{1}{m^2} }{ \frac{1}{m}+\frac{\alpha}{m^*} }+ \frac{ \frac{1}{m^3} }{ [\frac{1}{m}+\frac{\alpha}{m^*}]^2 }\\
+    &=-\frac{1}{m}\omega(m,m^*,\alpha)(1-\omega(m,m^*,\alpha)).
+\end{align*}
+
+Evaluating $\omega$ at $m=m^*$ yields
+\begin{align*}
+    \omega(m^*,m^*,\alpha) = \frac{1}{1+\alpha}.
+\end{align*}
+Therefore,
+\begin{align*}
+  \frac{\partial \omega}{\partial m}|_{m=m^*} &=  -\frac{\alpha}{m^*(1+\alpha)} 
+\end{align*}
+
+\begin{center}
+\begin{tabular}{ |r|r|r|c|c|c| } 
+ \hline
+             &             && $N_C$ & $N_P$ & $N_F$ \\ 
+ $1-p^{(C)}$ & $1-p^{(P)}$ && 1     & 1     & 1 \\ 
+ $1-p^{(C)}$ &   $p^{(P)}$ && 1     & 1     & 2 \\ 
+   $p^{(C)}$ & $1-p^{(P)}$ & $1-p^{(P)}$ & 1     & 2     & 2 \\ 
+   $p^{(C)}$ & $1-p^{(P)}$ & $p^{(P)}$ & 1     & 2     & 3 \\ 
+   $p^{(C)}$ & $p^{(P)}$ & $1-p^{(P)}$ & 1     & 2     & 3 \\ 
+   $p^{(C)}$ & $p^{(P)}$ & $p^{(P)}$ & 1     & 2     & 4 \\ 
+ \hline
+\end{tabular}
+\label{tab:branching}
+\end{center}
+
+
+% (1-pC) * (1-pP) N_f
+
+
+
+%Although temporally $P$ first retrieves genetic material from one or two F's, then delivers this genetic material to one $C$, it is easier to assess the probabilities in reverse temporal order given the probability 
+%of fertilization amounts. The probability of genetic material getting delivered to $C$ with only three individuals represented, which symbolically we shall represent by $\{F:1,P:1,C:1\}$ is $p^{(C)} \. p^{(P)}$. 
+
+%single mating for both $C$
+
+%and competition for each species-specific decision about whether to double- or single-mate. With probability $$
+Given the assumption of only single- or double-mating, the probability of each 
