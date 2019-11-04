@@ -1,6 +1,6 @@
 
 
-\section{A dynamical model for the emergence of gamete asymmetry}
+\section*{A dynamical model for the emergence of gamete asymmetry}
 
 
 \begin{figure}[htb!]
@@ -17,9 +17,9 @@
     \label{fig:2sexRun1}
 \end{figure}
 
-In our three-sex world, we have one sex with large gametes (like egg in humans) and two sexes with minimally small gametes (like sperms in humans). To give you humans a more intuitive picture of what the three-sex world looks like, we present here a dynamical model and show, in simulation, show how the Gamete size distribution evolves to be the way it is. 
+In our three-sex world, we have one sex with large gametes (eggs in humans) and two sexes with minimally small gametes (sperm in humans). To give you humans a more intuitive picture of what the three-sex world looks like, we present here a dynamical model and show, in simulation, show how the gamete size distribution evolves to be the way it is. 
 
-\subsection{Two sexes}
+\subsection*{Two sexes}
 To convince you of the model's validity, we first present the model in the case of two sexes and show how the model predicts the emergence of gamete size differences on Earth. 
 
 In the model, we use subscript $1$ to denote variables for sex $1$, and subscript $2$ to denote those for sex $2$. Let $x$ denote gamete size (biomass), and $\rho_1(x_1)$ denote the distribution of gamete size in sex 1, and $\rho_2(x_2)$ denote that in sex 2. Let there be $N$ individuals in either sex. We denote the gamete size of all individuals in sex 1 to be $X_1 = (x_{1,1}, x_{1,2}, \cdots x_{1,N})$. We denote that for sex 2 to be $X_2$. 
@@ -56,7 +56,7 @@ The intuitive understanding of Eq.~\ref{eq:2sexDynam} is that gamete size evolve
 We numerically simulate the model (Eq.~\ref{eq:2sexDynam}) described above in an agent-based fashion, with discrete time steps. We start with 20 individuals in each sex with gamete size drawn from a uniform distribution. The functional form of  $s(x)$ and $n(x)$ with our chosen parameters are shown in Fig.~\ref{fig:2sexFun1}. The trajectories for the evolution of gamete size are shown in Fig.~\ref{fig:2sexRun1}. One sex evolves to have the smallest possible gametes size, and the other evolves to have a large gamete size, agreeing with what we observe on earth. 
 
 
-\subsection{Three sexes}
+\subsection*{Three sexes}
 
 
 \begin{figure}[htb!]
@@ -73,9 +73,9 @@ In the world of three sexes, the number of children expected in an mating event 
 \begin{equation}\label{eq:c3_1}
     c(x_1, x_2, x_3) = \frac{n_1(x_1)}{\sum_{x_1\in X_1} n_1(x_1)} S(x_1+ x_2 + x_3)
 \end{equation}
-Now we need to integrate $c$ over all mates in sex 2 and sex 3. The expected total number of children for an individual of sex 1 and gamete size $x_1$ is
+Intuitively, this equation combines the competition within the same sex, and cooperation with the other two sexes. Now we need to integrate $c$ over all mates in sex 2 and sex 3. The expected total number of children for an individual of sex 1 and gamete size $x_1$ is
 \begin{equation} \label{eq:c3_2}
-    c_1(x_1) = \sum_{x_2 \in X_1} \sum_{x_3 \in X_3}
+    c_1(x_1) = \sum_{x_2 \in X_2} \sum_{x_3 \in X_3}
    \frac{n_1(x_1)}{\sum_{x_1\in X_1} n_1(x_1)} S(x_1+ x_2 + x_3) 
 \end{equation}
 I believe you earth scientists are smart enough to write down expressions for $c_2$ and $c_3$, which are similar to Eq.~\ref{eq:c3_2}. 

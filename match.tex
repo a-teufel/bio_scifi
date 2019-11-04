@@ -2,13 +2,8 @@
 
 % bonding rates
 
-\subsubsection{Background}
 
-While polygyny is the default marriage system, monogamy is common across wealthy nations and is considered the default by much research. According to Fortunato \cite{Fortunato2015, Fortunato2009}, monogomy tends to occur if . In a monogamous society, paternity can be assured due to high investment by fathers. Low investment can lead to unsure paternity. 
-
-We consider the case where individuals need to match with 2 instead of 1 other person. 
-
-Here we present a simple model based on a concept you seem to be comfortable, ``Nash equilibrium''. The population consists of $N$ types of sex, and each sex contains $n$ number of agents. Let $a_{i,s}$ be an agent ID $i$ from sex $s$. Each agent is characterized by its feature $X_{i,s}$. They can form a marriage by find a mate from each other sex. If an agent Their preference for marriage is represented by a utility function $u_{i,s}(X_{})$.
+Here we present a simple model based on a concept you seem to be comfortable, ``Nash equilibrium''. The population consists of $N$ types of sex, and each sex contains $n$ number of agents. Let $a_{i,s}$ be an agent ID $i$ from sex $s$. Each agent is characterized by its feature $X_{i,s}$. They can form a marriage by find a mate from each other sex. If an agent Their preference for marriage is represented by a utility function $u(\{a_{j,t} \}_{t\neq s}  ;a_{i,s})$ representing the utility of an agent $a_{i,s}$ marrying to a set of agents $\{a_{j,t} \}_{t\neq s}$.
 
 For each period, we repeat the following steps:
 \begin{enumerate}
@@ -17,9 +12,7 @@ For each period, we repeat the following steps:
     \item If {\textit all} of them think this new marriage is better than their current one, then they each break up the existing marriage and form the new one.
     \item Else, nothing happens.
 \end{enumerate}
-
-
-
-
-
-The divorce-and-marriage constantly happens in our system compared to biparental 
+As this is a best-response dynamics, the following proposition trivially holds.
+\begin{proposition}
+There exists a fixed point in this marriage process.
+\end{proposition}
